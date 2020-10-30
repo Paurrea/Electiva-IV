@@ -1,0 +1,61 @@
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int lectureAnaloga = analogRead(A0);
+  Serial.println(lectureAnaloga);
+ 
+  if(lectureAnaloga > 0 && lectureAnaloga < 300){
+    secuencia1();
+  }
+  if(lectureAnaloga > 300 && lectureAnaloga < 650){
+    secuencia2();
+  }
+  if(lectureAnaloga > 650){
+    secuencia3();
+  }
+  
+}  
+  void secuencia1(){
+  for (int i=3; i<=13; i++){ 
+	digitalWrite(i, HIGH); // Prenda pin actual
+	digitalWrite(i-1,LOW); // Apage el Anterior
+	delay(500); // retardo entre prender y apagar
+  } 
+  for (int i=13; i>=3; i--){ //Al contrario de la
+	digitalWrite(i, LOW); // anterior secuencia va de 9 a 2
+	digitalWrite(i-1,HIGH);
+	delay(500);
+	}
+  }
+  
+  void secuencia2(){
+  for (int i=3; i<=13; i++){ 
+	digitalWrite(i, HIGH); // Prenda pin actual
+	digitalWrite(i-1,LOW); // Apage el Anterior
+	delay(200); // retardo entre prender y apagar
+  }
+  for (int i=13; i>=3; i--){ //Al contrario de la
+	digitalWrite(i, LOW); // anterior secuencia va de 9 a 2
+	digitalWrite(i-1,HIGH);
+	delay(200);
+	}
+
+  }
+  
+  void secuencia3(){
+  for (int i=3; i<=13; i++){ 
+	digitalWrite(i, HIGH); // Prenda pin actual
+	digitalWrite(i-1,LOW); // Apage el Anterior
+	delay(50); // retardo entre prender y apagar
+  }
+  for (int i=13; i>=3; i--){ //Al contrario de la
+	digitalWrite(i, LOW); // anterior secuencia va de 9 a 2
+	digitalWrite(i-1,HIGH);
+	delay(50);
+  }
+  }
+  
