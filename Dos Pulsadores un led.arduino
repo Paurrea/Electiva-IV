@@ -1,0 +1,32 @@
+// Práctica encender y apagar un LED a través de botón pulsador
+
+const int LED=12;
+const int BOTON1=2;//encender
+const int BOTON2=7;//apagar
+int val;
+
+void setup(){
+ pinMode(LED,OUTPUT);
+ pinMode(BOTON1,INPUT);
+ pinMode(BOTON2,INPUT);
+}
+
+void loop(){
+  if (val=digitalRead(BOTON1)){
+    digitalWrite(LED,HIGH);
+  }
+  if (val=digitalRead(BOTON2)){
+    digitalWrite(LED,LOW);
+  }
+}
+
+/*
+void loop(){
+  val=digitalRead(BOTON1);
+  if  (val==HIGH){
+    digitalWrite(LED,HIGH);
+  }
+  else { digitalWrite(LED,LOW);
+  }
+}
+*/
