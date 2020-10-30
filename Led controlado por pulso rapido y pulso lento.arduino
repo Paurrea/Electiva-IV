@@ -1,0 +1,28 @@
+const int LED=13;
+const int BOTON1=12;//enciende y apaga mas rápido
+const int BOTON2=11;//enciende 1 led
+int val;
+
+void setup(){
+ pinMode(LED,OUTPUT); 
+ pinMode(BOTON1,INPUT);
+ pinMode(BOTON2,INPUT);
+}
+
+void loop(){
+  if(val=digitalRead(BOTON1)){
+    for(int x=3; x<10; x++)
+      digitalWrite(LED, HIGH);  
+      delay(1000);            
+      digitalWrite(LED, LOW);  
+      delay(1000);            
+  }
+  if(digitalRead(BOTON2)){
+    for(int x=3; x<10; x++)
+      digitalWrite(LED, HIGH);  
+      delay(200);            
+      digitalWrite(LED, LOW);  
+      delay(200);
+  }
+  
+}
