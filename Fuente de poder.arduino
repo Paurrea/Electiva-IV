@@ -1,0 +1,70 @@
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int lectureAnaloga = analogRead(A0);
+  Serial.println(lectureAnaloga);
+  if(lectureAnaloga > 100){
+    digitalWrite(12,HIGH);
+  }
+  else{
+    digitalWrite(12,LOW);
+  }  
+  if(lectureAnaloga > 200){
+    digitalWrite(11,HIGH);
+  }
+  else{
+    digitalWrite(11,LOW);
+  }
+  if(lectureAnaloga > 300){
+    digitalWrite(10,HIGH);
+  }
+  else{
+    digitalWrite(10,LOW);
+  }
+  if(lectureAnaloga > 400){
+    digitalWrite(9,HIGH);
+  }
+  else{
+    digitalWrite(9,LOW);
+  }
+  if(lectureAnaloga > 500){
+    digitalWrite(8,HIGH);
+  }
+  else{
+    digitalWrite(8,LOW);
+  }
+  if(lectureAnaloga > 600){
+    digitalWrite(7,HIGH);
+  }
+  else{
+    digitalWrite(7,LOW);
+  }
+  if(lectureAnaloga > 700){
+    digitalWrite(6,HIGH);
+  }
+  else{
+    digitalWrite(6,LOW);
+  }
+  if(lectureAnaloga > 800){
+    digitalWrite(5,HIGH);
+  }
+  else{
+    digitalWrite(5,LOW);
+  }
+  if(lectureAnaloga > 900){
+    digitalWrite(4,HIGH);
+  }
+  else{
+    digitalWrite(4,LOW);
+  }
+  if(lectureAnaloga > 1000){
+    digitalWrite(3,HIGH);
+  }
+  else{
+    digitalWrite(3,LOW);
+  }
+}
