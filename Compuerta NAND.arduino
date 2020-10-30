@@ -1,0 +1,57 @@
+#include<math.h>
+//variables par emular la rna 3 capas
+byte v1,v2, v3;
+float n1,n2,n3;
+float a1,a2, a3;
+float resultado;
+float e=2.7182818;
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(6, INPUT);
+  pinMode(4, INPUT);
+  pinMode(2, INPUT);
+  Serial.begin(9600);
+  
+}
+
+void loop()
+{
+  
+  v1=digitalRead(6);
+  v2=digitalRead(4);
+  v3=digitalRead(2);
+  
+  Serial.print(v1);
+  Serial.print("         ");
+  Serial.print(v2);
+  Serial.print("         ");
+  Serial.print(v3);
+  Serial.print("         ");
+  
+  
+  
+  //Emular RNA N
+  
+  n1=v1*(2.5367) + v2*(1.9679) + v3*(2.0047) + (-6.6542);
+  n2=v1*(1.2970) + v2*(-3.3989) + v3*(-1.8020) + (1.9281);
+  n3=v1*(0.3200) + v2*(3.8291) + v3*(0.9883) + (-1.0904);
+  
+  a1=tanh(n1);
+  a2=tanh(n2);
+  a3=tanh(n3);
+  
+  resultado =a1*(-6.6542) + a2*(1.9281) + a3*(-1.0904);
+  
+  Serial.print(" Resultado = ");
+  Serial.println(resultado);
+	
+  if(resultado < 0.08){
+    digitalWrite(13,LOW);
+  }
+  else {
+    digitalWrite(13,HIGH);
+  }
+  delay(500);
+}
