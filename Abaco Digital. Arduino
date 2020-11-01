@@ -1,0 +1,99 @@
+const int pulso_resta = 12;
+const int pulso_suma = 11;
+const int led2 = 2;
+const int led3 = 3;
+const int led4 = 4;
+const int led5 = 5;
+const int led6 = 6;
+const int led7 = 7;
+const int led8 = 8;
+const int led9 = 9;
+
+int contador = 0;
+
+void setup()
+{
+  pinMode(pulso_resta, INPUT_PULLUP);
+  pinMode(pulso_suma, INPUT_PULLUP);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+  pinMode(led6, OUTPUT);
+  pinMode(led7, OUTPUT);
+  pinMode(led8, OUTPUT);
+  pinMode(led9, OUTPUT);
+}
+
+void loop(){
+  
+  int lectura_resta = digitalRead(pulso_resta);
+  int lectura_suma = digitalRead(pulso_suma);
+
+  delay (300);
+    
+    if (lectura_resta == LOW) {
+    if (contador == 0){
+          contador = 0;
+    }else{
+          contador = contador - 1;
+          digitalWrite(contador+2, LOW);
+    }
+    if (contador == 1) {
+        digitalWrite(led2, LOW);
+    }
+    if (contador == 2) {
+        digitalWrite(led3, LOW);
+    }
+    if (contador == 3) {
+        digitalWrite(led4, LOW);
+    }
+    if (contador == 4) {
+        digitalWrite(led5, LOW);
+    }
+    if (contador == 5) {
+        digitalWrite(led6, LOW);
+    }
+    if (contador == 6) {
+        digitalWrite(led7, LOW);
+    }
+    if (contador == 7) {
+        digitalWrite(led8, LOW);
+    }
+    if (contador == 8) {
+        digitalWrite(led9, LOW);
+    }
+  }
+
+  if (lectura_suma == LOW) {
+      if (contador == 8) {
+          contador = 8;
+    }else{
+        contador = contador + 1;
+    }
+    if (contador == 1) {
+        digitalWrite(led2, HIGH);
+    }
+    if (contador == 2) {
+        digitalWrite(led3, HIGH);
+    }
+    if (contador == 3) {
+        digitalWrite(led4, HIGH);
+    }
+    if (contador == 4) {
+        digitalWrite(led5, HIGH);
+    }
+    if (contador == 5) {
+        digitalWrite(led6, HIGH);
+    }
+    if (contador == 6) {
+        digitalWrite(led7, HIGH);
+    }
+    if (contador == 7) {
+        digitalWrite(led8, HIGH);
+    }
+    if (contador == 8) {
+        digitalWrite(led9, HIGH);
+    }
+  }
+}
