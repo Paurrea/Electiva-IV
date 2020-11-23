@@ -1,0 +1,113 @@
+const int LED=2;
+const int BOTON1=3;//enciende y apaga mas rápido
+const int BOTON2=4;//enciende 1 led
+const int BOTON3=5;//enciende 1 led
+int val1;
+int val2;
+
+int pin = 3;
+unsigned long duration2;
+unsigned long duration3;
+
+void setup() {
+  Serial.begin(9600);
+  //pinMode(pin, INPUT);
+  pinMode(13,OUTPUT); 
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(LED,OUTPUT);
+  pinMode(BOTON1,INPUT);
+  pinMode(BOTON2,INPUT);
+  pinMode(BOTON3,INPUT);
+}
+
+void loop() {
+  
+  val1=digitalRead(BOTON1);
+  if (val1 == HIGH ){
+    digitalWrite(LED,HIGH);
+    encenderleds();
+  }
+  else { digitalWrite(LED,LOW);
+  }
+  
+  duration2 = pulseIn(BOTON2, HIGH);
+  Serial.println(duration2);
+ 
+  if(duration2 > 0 && duration2 < 100000){
+    secuencia1();
+  }
+  if(duration2 > 100000 && duration2 < 500000){
+    secuencia2();
+  }
+  if(duration2 > 500000){
+    secuencia3();
+  }
+  
+  duration3 = pulseIn(BOTON3, HIGH);
+  Serial.println(duration2);
+ 
+  if(duration3 > 0 && duration3 < 100000){
+    secuencia3();
+  }
+  if(duration3 > 100000 && duration3 < 500000){
+    secuencia2();
+  }
+  if(duration3 > 500000){
+    secuencia1();
+  }
+  
+}
+
+void encenderleds(){
+    digitalWrite(13,HIGH);
+    digitalWrite(12,HIGH);
+    digitalWrite(11,HIGH);
+    digitalWrite(10,HIGH);
+    digitalWrite(9,HIGH);
+}
+
+void secuencia1(){
+  for (int i=9; i<=13; i++){ 
+	digitalWrite(i, HIGH); // Prenda pin actual
+	digitalWrite(i-1,LOW); // Apage el Anterior
+	delay(1000); // retardo entre prender y apagar
+  } 
+  for (int i=13; i>=9; i--){ //Al contrario de la
+	digitalWrite(i, LOW); // anterior secuencia va de 9 a 2
+	digitalWrite(i-1,HIGH);
+	delay(1000);
+	}
+  }
+  
+  void secuencia2(){
+  for (int i=9; i<=13; i++){ 
+	digitalWrite(i, HIGH); // Prenda pin actual
+	digitalWrite(i-1,LOW); // Apage el Anterior
+	delay(600); // retardo entre prender y apagar
+  }
+  for (int i=13; i>=9; i--){ //Al contrario de la
+	digitalWrite(i, LOW); // anterior secuencia va de 9 a 2
+	digitalWrite(i-1,HIGH);
+	delay(600);
+	}
+
+  }
+  
+  void secuencia3(){
+    for (int i=9; i<=13; i++){ 
+      digitalWrite(i, HIGH); // Prenda pin actual
+      digitalWrite(i-1,LOW); // Apage el Anterior
+      delay(50); // retardo entre prender y apagar
+    }
+    for (int i=13; i>=9; i--){ //Al contrario de la
+      digitalWrite(i, LOW); // anterior secuencia va de 9 a 2
+      digitalWrite(i-1,HIGH);
+      delay(50);
+    }
+  }
+
+
+  
